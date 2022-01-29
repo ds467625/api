@@ -13,6 +13,7 @@ app.use('/uploads', express.static('uploads'));
 
 app.post('/upload', (req, res) => {
   const {name,currentChunkIndex,totalChunks} = req.query;
+  console.log(`${name} | ${currentChunkIndex} | ${totalChunks}`);
   const firstChunk = parseInt(currentChunkIndex) === 0;
   const lastChunk = parseInt(currentChunkIndex) === parseInt(totalChunks) -1;
   const ext = name.split('.').pop();
